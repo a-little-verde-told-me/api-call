@@ -7,14 +7,13 @@ use Illuminate\Http\Request;
 
 class StudentsController extends Controller
 {
-    //GET /api/students
     public function index()
     {
         return response()
             ->json(Student::all())
             ->setEncodingOptions(JSON_PRETTY_PRINT);
     }
-     //GET /api/students/(id)
+
     public function show($id)
     {   
         $student = Student::find($id);
@@ -24,12 +23,12 @@ class StudentsController extends Controller
             ->json(['message'=> 'Student not found'], 404)
             ->setEncodingOptions(JSON_PRETTY_PRINT);
         }
+
         return response()
             ->json($student)
             ->setEncodingOptions(JSON_PRETTY_PRINT);
     }
 
-    //POST/api/student (single)
     public function store (Request $request)
     {
         $validated = $request -> validate([
@@ -46,7 +45,6 @@ class StudentsController extends Controller
     }
 
 
-    //PUT /api/students/(id) - full replace (all fields required)
     public function update(Request $request,$id)
     {
          $student = Student::find($id);
@@ -69,7 +67,6 @@ class StudentsController extends Controller
             ->setEncodingOptions(JSON_PRETTY_PRINT);
     }
 
-    //Patch /api/student/(id) - partial update
     public function patch(Request $request,$id)
     {
          $student = Student::find($id);
@@ -91,7 +88,7 @@ class StudentsController extends Controller
             ->json($student)
             ->setEncodingOptions(JSON_PRETTY_PRINT);
     }
-    //DELETE /api/students/(id)
+
     public function destroy($id)
     {
         $student = Student::find($id);
@@ -106,7 +103,7 @@ class StudentsController extends Controller
             ->json($student)
             ->setEncodingOptions(JSON_PRETTY_PRINT);
     }
-    //DELETE /api/students
+
     public function destroyAll()
     {
        Student::truncate();
