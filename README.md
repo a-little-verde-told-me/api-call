@@ -8,10 +8,8 @@ API-Call is a RESTful API built with Laravel for managing student data. This pro
 
 - **Create (POST)**: Add new student records with name, email, and course information
 - **Read (GET)**: Retrieve all students or fetch a specific student by ID
-- **Update (PUT)**: Modify existing student records
+- **Update (PUT and PATCH)**: Modify existing student records
 - **Delete (DELETE)**: Remove student records from the database
-- **Validation**: Built-in validation for required fields and unique email addresses
-- **Error Handling**: Proper HTTP status codes and error messages
 
 ## Setup Instructions
 
@@ -27,7 +25,7 @@ API-Call is a RESTful API built with Laravel for managing student data. This pro
 
 1. **Clone the Repository**
    ```bash
-   git clone [YOUR_GITHUB_REPOSITORY_LINK]
+   git clone https://github.com/a-little-verde-told-me/api-call.git
    cd api-call
    ```
 
@@ -36,7 +34,7 @@ API-Call is a RESTful API built with Laravel for managing student data. This pro
    composer install
    ```
 
-3. **Create Environment File**
+3. **Create .env File**
    ```bash
    cp .env.example .env
    ```
@@ -46,7 +44,7 @@ API-Call is a RESTful API built with Laravel for managing student data. This pro
    php artisan key:generate
    ```
 
-5. **Set Up Database**
+5. **Run a migration**
    ```bash
    php artisan migrate
    ```
@@ -55,23 +53,28 @@ API-Call is a RESTful API built with Laravel for managing student data. This pro
    ```bash
    php artisan serve
    ```
+7. **Test the API on Postman**
+   ```bash
+   http://127.0.0.1:8000/api/students
+   ```
 
-   The API will be available at `http://localhost:8000`
 
 ### Verifying the Setup
 
 Once the server is running, you can test the API by:
 - Opening Postman
 - Testing the endpoints listed below
-- Creating, retrieving, updating, and deleting student records
+- Inserting, fetching, updating, and deleting student records
 
 ### API Endpoints
 
 - `GET /api/students` - Get all students
 - `GET /api/students/{id}` - Get a specific student
-- `POST /api/students` - Create a new student
-- `PUT /api/students/{id}` - Update a student
-- `DELETE /api/students/{id}` - Delete a student
+- `POST /api/students` - Insert a new student
+- `PUT /api/students/{id}` - Modify a student (this requires to use all the required fields)
+- `PATCH /api/students/{id}` - Update a student (just the field you want to update)
+- `DELETE /api/students/{id}` - Delete a specific student
+- `DELETE /api/students` - Delete all student
 
 ### Testing with Postman
 
@@ -82,5 +85,5 @@ Import the API endpoints into Postman and test all CRUD operations. Student crea
 
 ## Screen Recording Demonstration
 
-[Add your Google Drive link here]
+https://drive.google.com/drive/folders/1cGIuKlq5YHQF1CJvfnGRWUnXw1AVkBZC?usp=sharing
 
