@@ -53,7 +53,7 @@ API-Call is a RESTful API built with Laravel for managing student data. This pro
    ```bash
    php artisan serve
    ```
-7. **Test the API on Postman**
+7. **Test the API in Postman**
    ```bash
    http://127.0.0.1:8000/api/students
    ```
